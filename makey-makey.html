@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Tug-o-War</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/addons/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+        var ballX = 400;
+        function setup() {
+            createCanvas(800,600);
+        }
+
+        function draw() {
+          background(255);
+          stroke(0);
+          ellipse(ballX,300,100,100);
+          
+          stroke(255,0,0);
+          line(50,200,50,400);
+          
+          stroke(0,0,255);
+          line(750,200,750,400);
+          
+          crossLine();
+        }
+        
+        function keyPressed() {
+            if (keyCode == LEFT_ARROW) {
+                ballX -= 10;
+            } else if (keyCode == RIGHT_ARROW) {
+                ballX += 10;
+            }
+        }
+        
+        function crossLine() {
+            textSize(30);
+            if (ballX == 0) {
+                background(232,79,73);
+                fill(255,0,0);
+                text("PLAYER 1 WINS!", height / 2, 100);
+                noLoop();
+            }
+            else if (ballX == 800) {
+                background(77,107,255);
+                fill(0,0,255);
+                text("PLAYER 2 WINS!", height /2, 500);
+                noLoop();
+            }
+         }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
